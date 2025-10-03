@@ -16,9 +16,10 @@ make_split <- function(data, prop = 0.7) {
 ui <- tagList(
   themeSelector(),
   navbarPage(
+    theme = shinytheme("flatly"),
     title = tags$b("k-NN Regression and Classification App"),
     inverse = TRUE,
-    tabPanel(tags$b("Analysis of the model"),
+    tabPanel(tags$b("Analysis of k-NN Model"),
              sidebarPanel(
                selectInput("dataset", "Select Dataset:",
                            choices = c("mtcars", "iris"), selected = "mtcars"),
@@ -71,11 +72,31 @@ ui <- tagList(
                )
              )
     ),
-    tabPanel(tags$b("About the model"),
+    tabPanel(tags$b("About Shiny App"),
              fluidPage(
-               h3("About the k-NN Model App"),
-               p("This app allows you to train k-NN models for regression or classification,
-                 adjust parameters, and explore model performance and predictions.")))))
+               tags$div(
+                 tags$h3("k-NN Regression and Classification Shiny Application:"),
+                 tags$p("This Shiny app provides an engaging and interactive platform
+                        for analyzing k-Nearest Neighbors models in both regression and
+                        classification scenarios. ", "Users can select datasets
+                        (", tags$code("mtcars"), " or ", tags$code("iris"), "),
+                        choose response and explanatory variables, tune the number of neighbors
+                        (", tags$code("k"), "), ", "select distance method, and view model
+                        performance and predictions."),
+                 tags$p("The app displays multiple tabs for:"),
+                 tags$ul(
+                   tags$li("Plotting actual vs predicted values,"),
+                   tags$li("Histogram of distances used in the model,"),
+                   tags$li("Model performance metrics (MSE, R\u00B2 for regression;
+                           Misclassification rate for classification),"),
+                   tags$li("Interactive tables showing actual vs predicted values with
+                           download option.")
+                 )
+               )
+             )
+    )
+  )
+)
 
 
 server <- function(input, output) {
