@@ -17,10 +17,11 @@
 #' \dontrun{
 #' fit <- knn_s3(Species ~ Sepal.Length + Sepal.Width, data = iris, k = 5)
 #' new_obs <- iris[1:5, c("Sepal.Length", "Sepal.Width")]
-#' predict(fit, newdata = new_obs)
+#' predict(fit, newdata = new_obs, method = "R")
 #' }
 #'
 #' @export
+#'
 predict.knn_s3 <- function(object, newdata, method = c("R", "cpp"), ...) {
   method <- match.arg(method)
 

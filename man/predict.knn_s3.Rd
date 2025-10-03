@@ -29,7 +29,7 @@ for regression, returns numeric predictions.
 \dontrun{
 fit <- knn_s3(Species ~ Sepal.Length + Sepal.Width, data = iris, k = 5)
 new_obs <- iris[1:5, c("Sepal.Length", "Sepal.Width")]
-predict(fit, newdata = new_obs)
+predict(fit, newdata = new_obs, method = "R")
 }
 
 }
