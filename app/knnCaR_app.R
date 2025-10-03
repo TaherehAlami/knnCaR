@@ -1,9 +1,11 @@
-library(shiny)
-library(shinythemes) #themeSelector()
-library(ggplot2)
-library(knnCaR)
-library(DT)
-library(htmltools)
+
+#' @import shiny
+#' @import shinythemes
+#' @import ggplot2
+#' @import DT
+#' @import htmltools
+#' @export
+#'
 
 # fixed split function
 make_split <- function(data, prop = 0.7) {
