@@ -180,7 +180,7 @@ server <- function(input, output) {
           "  R² =", round(r2(obs, predicted_knn()), 3), "\n")
     } else {
       cat("Test set:\n")
-      cat(" Misclassification=", misclass(obs, predicted_knn()), "\n")
+      cat(" Misclassification Rate: ", misclass(obs, predicted_knn()), "\n")
     }
   })
 
